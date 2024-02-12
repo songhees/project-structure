@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: local
+  thymeleaf:
+    cache: false
+    prefix: classpath:templates/
+    suffix: .html
+
+# db connection test query
+#  datasource:
+#    tomcat:
+#      test-on-borrow: true
+#      validation-query: SELECT 1
+
+# mybatis
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: mybatis/mappers/*.xml
+
