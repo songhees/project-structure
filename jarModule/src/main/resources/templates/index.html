@@ -1,10 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script th:src="@{js/jquery/jquery-3.7.1.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var result = /*[[${pageData}]]*/ {};
+        /*]]>*/
+    </script>
+    <script th:src="@{js/testList.js}"></script>
 </head>
-<body>
-  <h1>hello</h1>
+<body style="margin: unset;">
+    <div class="container" >
+        <header>
+          <div class="flex">
+              asdasdasdda
+          </div>
+        </header>
+        <div class="menu">
+            <div class="item-center flex sub-menu">
+                <div class="home">
+                    <img class="w-20 white-svg" th:src="@{image/common/home.svg}" alt="home"/>
+                </div>
+                <span class="">테스트 목록</span>
+            </div>
+        </div>
+        <ul class="breadcrumb">
+            <li><a href="#"><img class="w-20" th:src="@{image/common/home.svg}" alt="home"/></a></li>
+            <li><a href="#">테스트 목록</a></li>
+        </ul>
+        <main>
+            <div class="order">
+                <a href="#" class="active">유형순</a>
+                <a href="#">시각순</a>
+                <a href="#">진행일순</a>
+                <a href="#">진행자순</a>
+            </div>
+            <div class="flex filter">
+                <div>
+                    <label class="mr-15" for="server">
+                        Target
+                    </label>
+                    <select class="mr-15" id="server">
+                        <option value="0">MQNIC_AWS</option>
+                    </select>
+                    <button type="button" th:text="${'수동 실행'}"/>
+                    <button type="button" th:text="${'결과 조회'}"/>
+                </div>
+                <div class="flex">
+                    <select class="mr-15">
+                        <option>전체</option>
+                        <option>유형</option>
+                        <option>테스트 명칭</option>
+                        <option>등록일시</option>
+                    </select>
+                    <div class="search">
+                        <input type="text" name="search" placeholder="검색어 입력"/>
+                        <div class="search-btn">
+                            <img class="w-20" th:src="@{image/common/search.svg}" alt="search"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table id="testList" class="w-100p">
+                <tr id="header">
+                    <th>
+                        <input type="checkbox" name="allCheck"/>
+                    </th>
+                    <th>유형</th>
+                    <th>테스트 명칭</th>
+                    <th>테스트 주기</th>
+                    <th>테스트 시각</th>
+                    <th>등록일시</th>
+                    <th>진행자</th>
+                </tr>
+            </table>
+            <div class="text-center mt-70">
+                <div class="pagination">
+                    <a href="#">&laquo;</a>
+                    <a href="#" class="mr-15">&lt;</a>
+                    <a href="#">1</a>
+                    <a href="#" class="active">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#" class="ml-15">&gt;</a>
+                    <a href="#">&raquo;</a>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
